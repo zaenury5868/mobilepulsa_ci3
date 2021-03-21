@@ -5,14 +5,13 @@
         <!-- Title -->
         <div class="row heading-bg">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h5 class="txt-dark">blank page</h5>
+                <h5 class="txt-dark"><?= $judul; ?></h5>
             </div>
             <!-- Breadcrumb -->
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
-                    <li><a href="index.html">Dashboard</a></li>
-                    <li><a href="#"><span>speciality pages</span></a></li>
-                    <li class="active"><span>blank page</span></li>
+                    <li><a href="<?= base_url('bca') ?>">Dashboard</a></li>
+                    <li class="active"><span><?= $judul; ?></span></li>
                 </ol>
             </div>
             <!-- /Breadcrumb -->
@@ -30,7 +29,9 @@
                                     <div class="row">
                                         <div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left">
                                             <span class="weight-500 uppercase-font txt-light block font-13">Saldo</span>
-                                            <span class="txt-light block counter">Rp 118.849.999,53</span>
+                                            <span
+                                                class="txt-light block counter"><?= "Rp ." . number_format($saldo, 2, ',', '.'); ?>
+                                            </span>
                                         </div>
                                         <div class="col-xs-6 text-center  pl-0 pr-0 data-wrap-right">
                                             <i class="zmdi zmdi-male-female txt-light data-right-rep-icon"></i>
@@ -52,7 +53,8 @@
                                         <div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left">
                                             <span class="weight-500 uppercase-font txt-light block">Saldo Masuk bulan
                                                 ini</span>
-                                            <span class="txt-light block counter">Rp 80.746.100,00</span>
+                                            <span
+                                                class="txt-light block counter"><?= "Rp ." . number_format($danamasuk, 2, ',', '.'); ?></span>
                                         </div>
                                         <div class="col-xs-6 text-center  pl-0 pr-0 data-wrap-right">
                                             <i class="zmdi zmdi-redo txt-light data-right-rep-icon"></i>
@@ -131,18 +133,27 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php foreach ($statements as $mutasi) : ?>
                                             <tr>
-                                                <td><span class="txt-dark weight-500">29/08</span></td>
-                                                <td>0000</td>
-                                                <td>D</td>
-                                                <td>
-                                                    <span class="txt-dark weight-500">Rp 9.000.000,00</span>
+                                                <td><span
+                                                        class="txt-dark weight-500"><?= $mutasi->TransactionDate; ?></span>
+                                                </td>
+                                                <td><?= $mutasi->BranchCode; ?></td>
+                                                <td><span
+                                                        class="txt-dark weight-500"><?= $mutasi->TransactionType; ?></span>
                                                 </td>
                                                 <td>
-                                                    TRSF E-BANKING DB </td>
+                                                    <span
+                                                        class="txt-dark weight-500"><?= "Rp ." . number_format($mutasi->TransactionAmount, 2, ',', '.'); ?></span>
+                                                </td>
                                                 <td>
-                                                    2808/ACDFT/WS950519000000.00 REK KORAN DARI GIRO KE TAPRES </td>
+                                                    <span class="txt-dark"><?= $mutasi->TransactionName; ?></span>
+                                                </td>
+                                                <td>
+                                                    <span class="txt-dark"><?= $mutasi->Trailer; ?></span>
+                                                </td>
                                             </tr>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -163,7 +174,9 @@
             </div>
         </footer>
         <!-- /Footer -
+
 ->
     </div>
 </div>
+
 <!-- /Main Content -->

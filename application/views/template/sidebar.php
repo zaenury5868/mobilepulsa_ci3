@@ -37,7 +37,7 @@
         </li>
 
         <li>
-            <a href="#">
+            <a href="<?= base_url('pulsa'); ?>" class="<?= ($this->uri->segment(1) == 'pulsa') ? "active" : ""; ?>">
                 <div class="pull-left">
                     <i class="zmdi zmdi-smartphone-iphone mr-20"></i>
                     <span class="right-nav-text">Pulsa</span>

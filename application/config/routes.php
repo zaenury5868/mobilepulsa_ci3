@@ -53,5 +53,6 @@ $route['default_controller'] = 'home';
 
 //BCA
 $route['bca'] = 'home';
+$route['mobilepulsa'] = 'mobilepulsa/dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

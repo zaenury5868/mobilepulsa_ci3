@@ -6,7 +6,8 @@
             <i class="zmdi zmdi-more"></i>
         </li>
         <li>
-            <a href="<?= base_url('bca'); ?>" class="active">
+            <a href="<?= base_url('bca'); ?>"
+                class="<?= ($this->uri->segment(1) == '' || $this->uri->segment(1) == 'bca') ? "active" : ""; ?>">
                 <div class="pull-left">
                     <i class="zmdi zmdi-city mr-20"></i>
                     <span class="right-nav-text">Bank BCA</span>
@@ -16,7 +17,8 @@
         </li>
 
         <li>
-            <a href="#">
+            <a href="<?= base_url('mobilepulsa'); ?>"
+                class="<?= ($this->uri->segment(1) == 'mobilepulsa') ? "active" : ""; ?>">
                 <div class="pull-left">
                     <i class="zmdi zmdi-smartphone-android mr-20"></i>
                     <span class="right-nav-text">Mobile Pulsa</span>
@@ -119,4 +121,5 @@
         </li>
     </ul>
 </div>
+
 <!-- /Left Sidebar Menu -->

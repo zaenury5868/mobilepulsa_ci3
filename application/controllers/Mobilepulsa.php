@@ -9,8 +9,6 @@ class Mobilepulsa extends CI_Controller {
 	private static $username = '082214515603';
 	private static $apiKey = '46760532de382c5e';
 	
-
-	
 	public function __construct()
 	{
 		parent::__construct();
